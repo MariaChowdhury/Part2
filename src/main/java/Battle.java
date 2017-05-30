@@ -238,7 +238,13 @@ public class Battle {
 	public Transformer getSurvivor(ListAndNoOfBattle lanob) {
 			ArrayList<Transformer>transformersList=lanob.getList();
 			Transformer winner = getWinner(transformersList);
-			transformersList.remove(winner);
+			char type=winner.getType();
+			for(int i=0;i<transformersList.size();i++){
+				char c=transformersList.get(i).getType();
+				if(c==type){
+					transformersList.remove(transformersList.get(i));
+				}
+			}
 			//survivor who did not have a battle
 			if(transformersList.size()>0){
 			return transformersList.get(0);
